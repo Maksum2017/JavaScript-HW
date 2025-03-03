@@ -1,12 +1,12 @@
 'use strict'
+// Тут ті самі завдання, що і в занятті про базові функції, але зробити їх потрібно за допомоги стрілочних функцій.
+
 // Task 1.
 // #I2XsG6f
 // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами a і b.
 document.write('<h3>Task 1.</h3>');
 
-function areaRectangle(a, b){
-    return a * b;
-}
+let areaRectangle = (a, b) => a * b;
 document.write(areaRectangle(4, 5));
 
 
@@ -16,9 +16,7 @@ document.write(areaRectangle(4, 5));
 // - створити функцію яка обчислює та повертає площу кола з радіусом r.
 document.write('<br><br><h3>Task 2.</h3>');
 
-function areaCircle(r){
-    return Math.PI * (r * 2);
-}
+let areaCircle = (r) => Math.PI * (r * 2);
 document.write(areaCircle(7));
 
 
@@ -28,9 +26,7 @@ document.write(areaCircle(7));
 // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіусом r.
 document.write('<br><br><h3>Task 3.</h3>');
 
-function areaCylinder(h, r){
-    return 2 * Math.PI * r * (h + r);
-}
+let areaCylinder = (h, r) => 2 * Math.PI * r * (h + r);
 document.write(areaCylinder(7, 10));
 
 
@@ -40,7 +36,7 @@ document.write(areaCylinder(7, 10));
 // - створити функцію яка приймає масив та виводить кожен його елемент.
 document.write('<br><br><h3>Task 4.</h3>');
 
-function showArray(array){
+let showArray = (array) => {
     for (const el of array) {
         document.writeln(el);
     }
@@ -54,9 +50,7 @@ showArray([3, 4, 'good', false]);
 // - створити функцію яка створює параграф з текстом та виводить його через document.write. Текст задати через аргумент.
 document.write('<br><br><h3>Task 5.</h3>');
 
-function createH2(text){
-    document.write(`<h2>${text}</h2>`);
-}
+let createH2 = (text) => document.write(`<h2>${text}</h2>`);
 createH2('Test h2');
 
 
@@ -67,11 +61,7 @@ createH2('Test h2');
 // Текст li задати через аргумент всім однаковий.
 document.write('<br><br><h3>Task 6.</h3>');
 
-function createUl1(text){
-    document.write(`<ul><li>${text}</li>
-                    <li>${text}</li>
-                    <li>${text}</li></ul>`);
-}
+let createUl1 = (text) => document.write(`<ul><li>${text}</li><li>${text}</li><li>${text}</li></ul>`);
 createUl1('Test ul1');
 
 
@@ -82,8 +72,7 @@ createUl1('Test ul1');
 // Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл) та виводить його через document.write.
 document.write('<br><br><h3>Task 7.</h3>');
 
-function createUl2(text, x){
-
+let createUl2 = (text, x) => {
     document.write(`<ul>`);
     while(x--){
         document.write(`<li>${text}</li>`);
@@ -100,10 +89,10 @@ createUl2('Test ul2', 4);
 // та будує для них список (ul li) та виводить його через document.write.
 document.write('<br><br><h3>Task 8.</h3>');
 
-function buildUl(){
+let buildUl = (...arr) => {
     document.write(`<ul>`);
-    for (const argument of arguments) {
-        document.write(`<li>${argument}</li>`);
+    for (const el of arr) {
+        document.write(`<li>${el}</li>`);
     }
     document.write(`</ul>`);
 }
@@ -117,7 +106,7 @@ buildUl(3, 4, 'good', false);
 // Для кожного об'єкту окремий блок.
 document.write('<br><br><h3>Task 9.</h3>');
 
-function showObject(array){
+let showObject = (array) => {
     for (const el of array) {
         document.write(`<div>`);
         for (const key in el) {
@@ -135,7 +124,7 @@ showObject([{id: 1, name: 'Vasya', age: 20}, {id: 2, name: 'Sasha', age: 24}])
 // - створити функцію яка повертає найменше число з масиву.
 document.write('<br><br><h3>Task 10.</h3>');
 
-function getMin(array){
+let getMin = (array) => {
     let min = array[0]
     for (let i = 1; i < array.length; i++)
         if (min > array[i]) min = array[i];
@@ -151,7 +140,7 @@ document.write(getMin([3, 5, -3, 4, 1, 7]));
 // Приклад sum([1,2,10]) //->13
 document.write('<br><br><h3>Task 11.</h3>');
 
-function sum(arr){
+let sum = (arr) => {
     let sum = 0;
     for (const el of arr)
         sum+=el;
@@ -167,7 +156,7 @@ document.write(sum([3, 5, -3, 4, 1, 7]));
 // Приклад swap([11,22,33,44],0,1) //=> [22,11,33,44]
 document.write('<br><br><h3>Task 12.</h3>');
 
-function swap(arr, index1, index2){
+let swap = (arr, index1, index2) => {
     let tmp = arr[index1];
     arr[index1] = arr[index2];
     arr[index2] = tmp;
@@ -184,7 +173,7 @@ showArray(arr);
 // Приклад exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD') // => 400
 document.write('<br><br><h3>Task 13.</h3>');
 
-function exchange(sumUAH, currencyValues, exchangeCurrency){
+let exchange = (sumUAH, currencyValues, exchangeCurrency) => {
     for (const el of currencyValues)
         if (el.currency === exchangeCurrency) return sumUAH / el.value;
 }
