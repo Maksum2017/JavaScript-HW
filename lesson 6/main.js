@@ -40,7 +40,7 @@ console.log('\n\n');
 // #bfoJuse4ZzP
 // - Напишіть функцію stringToArray(str), яка перетворює рядок на масив слів.
 // let str = 'Ревуть воли як ясла повні';
-// let arr = stringToarray(str); ['Ревуть', 'воли', 'як', 'ясла', 'повні']
+// let arr = stringToArray(str); ['Ревуть', 'воли', 'як', 'ясла', 'повні']
 document.write('<br><br><h3>Task 5.</h3>');
 function stringToArray(str){
     return str.split(' ');
@@ -122,45 +122,14 @@ console.log('\n\n');
 //     color:'', // 'red','black'
 // }
 console.log('Task 9.');
-let deck = [
-    { cardSuit: 'diamond', value: '6', color: 'red' },
-    { cardSuit: 'diamond', value: '7', color: 'red' },
-    { cardSuit: 'diamond', value: '8', color: 'red' },
-    { cardSuit: 'diamond', value: '9', color: 'red' },
-    { cardSuit: 'diamond', value: '10', color: 'red' },
-    { cardSuit: 'diamond', value: 'jack', color: 'red' },
-    { cardSuit: 'diamond', value: 'queen', color: 'red' },
-    { cardSuit: 'diamond', value: 'king', color: 'red' },
-    { cardSuit: 'diamond', value: 'ace', color: 'red' },
-    { cardSuit: 'heart', value: '6', color: 'red' },
-    { cardSuit: 'heart', value: '7', color: 'red' },
-    { cardSuit: 'heart', value: '8', color: 'red' },
-    { cardSuit: 'heart', value: '9', color: 'red' },
-    { cardSuit: 'heart', value: '10', color: 'red' },
-    { cardSuit: 'heart', value: 'jack', color: 'red' },
-    { cardSuit: 'heart', value: 'queen', color: 'red' },
-    { cardSuit: 'heart', value: 'king', color: 'red' },
-    { cardSuit: 'heart', value: 'ace', color: 'red' },
-    { cardSuit: 'spade', value: '6', color: 'black' },
-    { cardSuit: 'spade', value: '7', color: 'black' },
-    { cardSuit: 'spade', value: '8', color: 'black' },
-    { cardSuit: 'spade', value: '9', color: 'black' },
-    { cardSuit: 'spade', value: '10', color: 'black' },
-    { cardSuit: 'spade', value: 'jack', color: 'black' },
-    { cardSuit: 'spade', value: 'queen', color: 'black' },
-    { cardSuit: 'spade', value: 'king', color: 'black' },
-    { cardSuit: 'spade', value: 'ace', color: 'black' },
-    { cardSuit: 'clubs', value: '6', color: 'black' },
-    { cardSuit: 'clubs', value: '7', color: 'black' },
-    { cardSuit: 'clubs', value: '8', color: 'black' },
-    { cardSuit: 'clubs', value: '9', color: 'black' },
-    { cardSuit: 'clubs', value: '10', color: 'black' },
-    { cardSuit: 'clubs', value: 'jack', color: 'black' },
-    { cardSuit: 'clubs', value: 'queen', color: 'black' },
-    { cardSuit: 'clubs', value: 'king', color: 'black' },
-    { cardSuit: 'clubs', value: 'ace', color: 'black' }
-];
-console.log(deck.find(value => (value.cardSuit === 'spade' && value.value === 'ace')));
+let deck = [];
+const cardSuits = ['diamond', 'heart', 'spade', 'clubs'];
+const values = ['6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'];
+for(const suit of cardSuits)
+    for (const value of values)
+        deck.push( {cardSuit: suit, value: value, color: (suit === 'spade' || suit === 'clubs') ? 'black' : 'red' });
+
+console.log(deck.find(value => (value.value === 'ace' && value.cardSuit === 'spade')));
 console.log('\n');
 console.log(deck.filter(value => value.value === '6'));
 console.log('\n');
@@ -274,6 +243,6 @@ let coursesArray = [
         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
     }
 ];
-console.log(coursesArray.filter(value => value.modules.find(value => value === 'sass')));
+console.log(coursesArray.filter(value => value.modules.includes('sass')));
 console.log('\n');
-console.log(coursesArray.filter(value => value.modules.find(value => value === 'docker')));
+console.log(coursesArray.filter(value => value.modules.includes('docker')));
